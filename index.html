@@ -1,0 +1,1215 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   KrushiTech - Leaf Scanning for Farmers
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-gray-50 min-h-screen flex flex-col">
+  <div class="flex flex-col flex-grow" id="app">
+   <!-- Authentication Pages -->
+   <div class="flex-grow flex items-center justify-center p-4" id="auth-pages">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+     <h1 class="text-3xl font-bold text-green-700 mb-6 text-center">
+      KrushiTech
+     </h1>
+     <div id="auth-forms">
+      <!-- Sign In Form -->
+      <form class="space-y-6" id="sign-in-form">
+     
+       <button class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-md transition" type="submit">
+        Continue with KrushiTech
+       </button>
+       <button class="w-full flex items-center justify-center space-x-3 border border-gray-300 rounded-md py-2 hover:bg-gray-100 transition" id="google-sign-in" type="button">
+       
+        <span class="text-gray-700 font-bold">
+        Project By : <p>Ayush J MAhadik </p>                
+                     Prathmesh S Patil
+                    <p> Harshwardhan J Patil </p>
+        </span>
+       </button>
+       <p class="text-center text-gray-600">
+    
+        <button class="text-green-600 font-semibold hover:underline" id="to-sign-up" type="button">
+      
+        </button>
+       </p>
+      </form>
+      <!-- Sign Up Form -->
+      <form class="space-y-6 hidden" id="sign-up-form">
+       <h2 class="text-xl font-semibold text-gray-800">
+        Sign Up
+       </h2>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" id="sign-up-name" placeholder="Full Name" required="" type="text"/>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" id="sign-up-email" placeholder="Email" required="" type="email"/>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" id="sign-up-password" placeholder="Password" required="" type="password"/>
+       <button class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-md transition" type="submit">
+        Sign Up
+       </button>
+       <p class="text-center text-gray-600">
+        Already have an account?
+        <button class="text-green-600 font-semibold hover:underline" id="to-sign-in" type="button">
+         Sign In
+        </button>
+       </p>
+      </form>
+     </div>
+    </div>
+   </div>
+   <!-- Main App after login -->
+   <div class="hidden flex flex-col flex-grow min-h-0" id="main-app">
+    <!-- Top Slidebar -->
+    <nav aria-label="Primary Navigation" class="bg-green-700 text-white flex flex-wrap items-center justify-between px-4 py-3 sticky top-0 z-50">
+     <div class="flex items-center space-x-6 overflow-x-auto no-scrollbar">
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="about-us">
+       About Us
+      </button>
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="scan-leaf">
+       Scan Leaf
+      </button>
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="various-crops">
+       Various Crops
+      </button>
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="fertilizers">
+       Fertilizers
+      </button>
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="diseases">
+       Diseases
+      </button>
+    
+      <button class="nav-link px-3 py-2 hover:bg-green-600 rounded-md font-semibold whitespace-nowrap" data-page="follow-us">
+       Follow Us
+      </button>
+      <button class="ml-auto bg-green-700 hover:bg-green-700 px-3 py-2 rounded-md font-semibold" id="logout-btn">
+   
+      </button>
+     </div>
+    </nav>
+    <!-- Content Area -->
+    <main class="flex-grow overflow-auto p-6 bg-white">
+     <!-- About Us -->
+     <section class="page-content max-w-5xl mx-auto hidden" id="about-us">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       About KrushiTech
+      </h2>
+      <p class="text-gray-700 leading-relaxed mb-4">
+       KrushiTech is an innovative app designed to empower farmers by providing advanced leaf scanning technology to identify plants, detect diseases, and recommend fertilizers and crops best suited for their farm conditions.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+       Our mission is to help farmers increase crop yield, reduce losses due to diseases, and optimize fertilizer usage through easy-to-use technology.
+      </p>
+      <img alt="Farmers using technology devices in a green farm field with crops and blue sky" class="mt-6 rounded-lg shadow-md w-full object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/ad927ea3-2909-47bd-1fc6-bd1ede3c7ea8.jpg" width="600"/>
+     </section>
+     <!-- Scan Leaf -->
+     <section class="page-content max-w-5xl mx-auto hidden" id="scan-leaf">
+     
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   KrushiTech - Leaf Scan & Crop Recommendation
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Simple styling for the markdown output */
+    #results-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #10B981; /* Green-500 */
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        border-bottom: 2px solid #D1FAE5;
+        padding-bottom: 0.25rem;
+    }
+    #results-content ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        padding-left: 0;
+    }
+  </style>
+
+  <div class="flex flex-col flex-grow" id="app">
+   <!-- Authentication Pages (Hidden on successful auth) -->
+   <div class="flex-grow flex items-center justify-center p-4" id="auth-pages" style="display: none;">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+     <h1 class="text-3xl font-bold text-green-700 mb-6 text-center">
+      KrushiTech
+     </h1>
+     <div id="auth-forms">
+      <!-- NOTE: Actual Sign In/Up forms from the original file are omitted for brevity but the container is kept -->
+      <p class="text-center text-gray-500">Authentication forms would load here upon sign out.</p>
+     </div>
+    </div>
+   </div>
+
+   <!-- Main App Content (Simulated Dashboard) -->
+   <div class="flex-grow flex flex-col items-center p-4 md:p-8" id="main-app-content" style="display: flex;">
+    <header class="w-full max-w-4xl mb-6">
+     <div class="flex justify-between items-center bg-white p-4 shadow-xl rounded-xl">
+      <h1 class="text-3xl font-extrabold text-green-800">KrushiTech</h1>
+      <div class="flex items-center space-x-4">
+       <span id="user-display" class="text-sm font-medium text-gray-600">User ID: Loading...</span>
+       <button id="logout-button" class="text-red-500 hover:text-red-700 font-medium transition duration-150">
+        <i class="fas fa-sign-out-alt mr-1"></i>Logout
+       </button>
+      </div>
+     </div>
+    </header>
+
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl p-4 md:p-8">
+     <!-- Tabs -->
+     <div class="flex border-b mb-6">
+      <button id="tab-leaf-scan" class="py-3 px-4 text-lg font-semibold border-b-2 transition duration-300" data-tab="leaf-scan">
+       <i class="fas fa-camera mr-2"></i>Leaf Scanner
+      </button>
+      <button id="tab-crop-recommendation" class="py-3 px-4 text-lg font-semibold border-b-2 border-transparent text-gray-500 hover:text-green-700 transition duration-300" data-tab="crop-recommendation">
+       <i class="fas fa-seedling mr-2"></i>Crop Recommendation
+      </button>
+     </div>
+
+     <!-- Leaf Scan Content (NEW) -->
+     <div id="content-leaf-scan" class="space-y-6">
+      <h2 class="text-2xl font-bold text-green-700">Diagnose Plant Health</h2>
+      <p class="text-gray-600">Upload a clear photo of a plant leaf to identify potential diseases or nutrient deficiencies.</p>
+
+      <!-- Image Upload Area -->
+      <div class="flex flex-col items-center p-6 border-2 border-dashed border-green-300 rounded-lg bg-green-50">
+       <input type="file" id="leaf-image-input" accept="image/*" class="hidden" onchange="previewImage(event)">
+       <label for="leaf-image-input" class="cursor-pointer flex flex-col items-center space-y-3">
+        <i class="fas fa-cloud-upload-alt text-5xl text-green-500"></i>
+        <span class="text-lg font-medium text-green-700">Click to upload leaf image</span>
+        <span class="text-sm text-gray-500">PNG, JPG, or JPEG accepted</span>
+       </label>
+       <img id="image-preview" src="" alt="Image Preview" class="mt-4 max-h-64 w-auto object-contain rounded-lg shadow-md hidden border-4 border-white">
+       <button id="scan-button" onclick="scanLeaf()" class="mt-6 w-full max-w-xs py-3 bg-green-600 text-white font-bold rounded-xl shadow-lg hover:bg-green-700 transition duration-300 disabled:opacity-50" disabled>
+        <span id="scan-text">Scan Leaf for Diagnosis</span>
+        <i id="loading-spinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+       </button>
+      </div>
+
+      <!-- Results Area -->
+      <div id="scan-results" class="hidden mt-8">
+       <h3 class="text-xl font-bold text-green-800 border-b pb-2 mb-4">Diagnosis Report</h3>
+       <div id="results-content" class="space-y-4 p-4 bg-gray-50 border border-gray-200 rounded-lg shadow-inner">
+        <!-- Results will be injected here -->
+       </div>
+       <button onclick="clearScanResults()" class="mt-4 text-sm text-red-500 hover:text-red-700 transition duration-150">Clear Scan and Upload New</button>
+      </div>
+     </div>
+
+     <!-- Crop Recommendation Content (EXISTING) -->
+     <div id="content-crop-recommendation" class="space-y-6 hidden">
+      <h2 class="text-2xl font-bold text-green-700">Crop Recommendation</h2>
+      <p class="text-gray-600">Get a personalized crop suggestion based on your farm conditions.</p>
+      
+      <!-- Existing Form from the original file -->
+      <form id="farm-input-form" class="space-y-6">
+       <div class="space-y-2">
+        <label for="soil-type" class="block text-sm font-medium text-gray-700">Soil Type</label>
+        <select id="soil-type" name="soil-type" required="" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-150">
+         <option value="">-- Select Soil Type --</option>
+         <option value="sandy">Sandy</option>
+         <option value="clayey">Clayey</option>
+         <option value="loamy">Loamy</option>
+         <option value="silty">Silty</option>
+         <option value="peaty">Peaty</option>
+         <option value="chalky">Chalky</option>
+        </select>
+       </div>
+       <div class="space-y-2">
+        <label class="block text-sm font-medium text-gray-700">Previous Fertilizers Used</label>
+        <div class="flex flex-wrap gap-4">
+         <label class="inline-flex items-center">
+          <input type="checkbox" name="previous-fertilizer" value="urea" class="form-checkbox h-5 w-5 text-green-600 rounded">
+          <span class="ml-2 text-gray-700">Urea (Nitrogen)</span>
+         </label>
+         <label class="inline-flex items-center">
+          <input type="checkbox" name="previous-fertilizer" value="potash" class="form-checkbox h-5 w-5 text-green-600 rounded">
+          <span class="ml-2 text-gray-700">Potash (Potassium)</span>
+         </label>
+         <label class="inline-flex items-center">
+          <input type="checkbox" name="previous-fertilizer" value="organic" class="form-checkbox h-5 w-5 text-green-600 rounded">
+          <span class="ml-2 text-gray-700">Organic Compost</span>
+         </label>
+        </div>
+       </div>
+       <button type="submit" class="w-full py-3 bg-green-600 text-white font-bold rounded-xl shadow-lg hover:bg-green-700 transition duration-300">
+        Get Recommendation
+       </button>
+      </form>
+
+      <!-- Existing Result Display -->
+      <div id="crop-recommendation-result" class="hidden mt-6 p-4 border-l-4 border-green-500 bg-green-50 rounded-lg shadow-inner">
+       <p class="text-lg font-semibold text-green-800 mb-2">Recommended Crop: <span id="recommended-crop" class="text-2xl font-extrabold"></span></p>
+       <p id="recommendation-details" class="text-gray-700"></p>
+       <button onclick="clearCropRecommendation()" class="mt-4 text-sm text-gray-500 hover:text-gray-700 transition duration-150">Clear</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <script type="module">
+    // --- Firebase Initialization and Auth ---
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    
+    // Using a minimal markdown parser to safely render the API response
+    const markedScript = document.createElement('script');
+    markedScript.src = "https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js";
+    document.head.appendChild(markedScript);
+
+    setLogLevel('Debug');
+    
+    // Global variables from Canvas environment
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+    let db;
+    let auth;
+    let userId = null;
+
+    // --- Utility Functions for Gemini API ---
+
+    /** Converts a File object to a Base64 encoded string. */
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]); // Only the base64 part
+        reader.onerror = error => reject(error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    /**
+     * Tries to call the API with exponential backoff.
+     */
+    async function fetchWithBackoff(url, payload, retries = 5, delay = 1000) {
+      for (let i = 0; i < retries; i++) {
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            if (response.status >= 400 && response.status < 500) {
+              const errorBody = await response.json();
+              throw new Error(`Client Error: ${response.statusText} - ${JSON.stringify(errorBody)}`);
+            }
+            throw new Error(`Server Error: ${response.statusText}`);
+          }
+
+          return response.json();
+        } catch (error) {
+          console.error(`Attempt ${i + 1} failed: ${error.message}`);
+          if (i === retries - 1) throw error;
+          await new Promise(resolve => setTimeout(resolve, delay));
+          delay *= 2; // Exponential backoff
+        }
+      }
+    }
+
+    // --- UI/Tab Management ---
+
+    const tabButtons = document.querySelectorAll('[data-tab]');
+    const contentSections = document.querySelectorAll('[id^="content-"]');
+
+    /** Switches between the Leaf Scan and Crop Recommendation tabs. */
+    function switchTab(tabId) {
+        contentSections.forEach(section => {
+            section.classList.add('hidden');
+            if (`content-${tabId}` === section.id) {
+                section.classList.remove('hidden');
+            }
+        });
+
+        tabButtons.forEach(button => {
+            button.classList.remove('border-green-600', 'text-green-700');
+            button.classList.add('border-transparent', 'text-gray-500', 'hover:text-green-700');
+
+            if (button.dataset.tab === tabId) {
+                button.classList.remove('border-transparent', 'text-gray-500', 'hover:text-green-700');
+                button.classList.add('border-green-600', 'text-green-700');
+            }
+        });
+    }
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => switchTab(button.dataset.tab));
+    });
+
+    // Default to Leaf Scan tab on load
+    document.addEventListener('DOMContentLoaded', () => {
+        switchTab('leaf-scan');
+    });
+
+    // --- Leaf Scan Logic (NEW) ---
+
+    const leafImageInput = document.getElementById('leaf-image-input');
+    const imagePreview = document.getElementById('image-preview');
+    const scanButton = document.getElementById('scan-button');
+    const scanText = document.getElementById('scan-text');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const scanResultsDiv = document.getElementById('scan-results');
+    const resultsContentDiv = document.getElementById('results-content');
+    
+    /** Displays the image preview and enables the scan button. */
+    window.previewImage = function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            imagePreview.src = URL.createObjectURL(file);
+            imagePreview.classList.remove('hidden');
+            scanButton.disabled = false;
+            // Clear previous results when a new image is loaded
+            clearScanResults(false); 
+        } else {
+            imagePreview.src = '';
+            imagePreview.classList.add('hidden');
+            scanButton.disabled = true;
+        }
+    }
+
+    /** Clears the scan results and optionally resets the input. */
+    window.clearScanResults = function(resetInput = true) {
+        scanResultsDiv.classList.add('hidden');
+        resultsContentDiv.innerHTML = '';
+        if (resetInput) {
+            leafImageInput.value = '';
+            imagePreview.src = '';
+            imagePreview.classList.add('hidden');
+            scanButton.disabled = true;
+        }
+    }
+
+    /** Main function to call the Gemini API for leaf analysis. */
+    window.scanLeaf = async function() {
+        const file = leafImageInput.files[0];
+        if (!file) {
+            resultsContentDiv.innerHTML = '<p class="text-red-600 font-medium">Please select an image file first.</p>';
+            scanResultsDiv.classList.remove('hidden');
+            return;
+        }
+        
+        // Show loading state
+        scanButton.disabled = true;
+        scanText.textContent = 'Analyzing...';
+        loadingSpinner.classList.remove('hidden');
+        resultsContentDiv.innerHTML = '<p class="text-gray-500 flex items-center justify-center"><i class="fas fa-microscope fa-spin mr-2"></i>Analyzing the leaf structure and pigments...</p>';
+        scanResultsDiv.classList.remove('hidden');
+
+        try {
+            const base64Data = await fileToBase64(file);
+
+            // Detailed prompt instructing the model to return a structured, actionable diagnosis
+            const userPrompt = "Analyze the provided plant leaf image. First, identify the host plant species or the most likely species based on the leaf structure. Then, determine if there are any signs of disease or nutrient deficiency. Provide the diagnosis in the following detailed format, using clear headings for readability. If no disease or deficiency is found, state that the leaf appears healthy.\n\nDiagnosis Format:\n\n### 🌿 Host Plant\n[Identified Plant Species]\n\n### 🔬 Diagnosis\n[Disease Name / Nutrient Deficiency Name, or 'Healthy']\n\n### 📝 Description\n[Brief, single-paragraph explanation of the cause and impact]\n\n### ✅ Recommended Action\n[A list of 3-5 specific, practical steps for treatment or nutrient addition, including suggested fertilizer type or treatment method.]";
+            
+            const payload = {
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            { text: userPrompt },
+                            {
+                                inlineData: {
+                                    mimeType: file.type,
+                                    data: base64Data
+                                }
+                            }
+                        ]
+                    }
+                ],
+                systemInstruction: {
+                    parts: [{ text: "You are an expert agricultural and plant pathology assistant. Your task is to provide accurate, easy-to-understand diagnostics and practical recommendations for farmers based on a visual analysis of a plant leaf image. Use only Markdown for formatting the output." }]
+                }
+            };
+            
+            const apiKey = "AIzaSyAWwXBItRx71NN3kOq16h74a53NjfJPUfE"; // Canvas environment will provide this
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const result = await fetchWithBackoff(apiUrl, payload);
+            
+            const diagnosisText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+            if (diagnosisText) {
+                // Use marked.js to render the Markdown output into HTML
+                resultsContentDiv.innerHTML = window.marked.parse(diagnosisText);
+            } else {
+                resultsContentDiv.innerHTML = '<p class="text-red-600 font-medium">Analysis failed: Could not generate a diagnosis. Please try a different image.</p>';
+            }
+
+        } catch (error) {
+            console.error("Leaf Scan API Error:", error);
+            resultsContentDiv.innerHTML = `<p class="text-red-600 font-medium">An error occurred during the scan: ${error.message}. Ensure your image file is valid.</p>`;
+        } finally {
+            // Hide loading state
+            scanButton.disabled = false;
+            scanText.textContent = 'Scan Leaf for Diagnosis';
+            loadingSpinner.classList.add('hidden');
+        }
+    }
+
+    // --- Firebase Auth Initialization (Existing Logic) ---
+
+    // Main initialization function
+    function initialize() {
+      if (Object.keys(firebaseConfig).length === 0) {
+        console.error("Firebase config is missing. Cannot initialize Firebase.");
+        return;
+      }
+      
+      try {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+        
+        // Sign in logic
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            userId = user.uid;
+            document.getElementById('user-display').textContent = `User ID: ${userId}`;
+            document.getElementById('auth-pages').style.display = 'none';
+            document.getElementById('main-app-content').style.display = 'flex';
+          } else {
+            // If not already signed in, try to sign in with custom token or anonymously
+            try {
+              if (initialAuthToken) {
+                await signInWithCustomToken(auth, initialAuthToken);
+              } else {
+                await signInAnonymously(auth);
+              }
+            } catch (error) {
+              console.error("Firebase Auth error:", error);
+            }
+          }
+        });
+
+        // Logout listener
+        document.getElementById('logout-button')?.addEventListener('click', async () => {
+          try {
+            await signOut(auth);
+            document.getElementById('auth-pages').style.display = 'flex';
+            document.getElementById('main-app-content').style.display = 'none';
+            userId = null;
+          } catch (error) {
+            console.error("Logout failed:", error);
+          }
+        });
+        
+      } catch (error) {
+        console.error("Error initializing Firebase:", error);
+      }
+    }
+
+    // Initialize Firebase
+    initialize();
+
+
+    // --- Crop Recommendation Logic (Existing Logic) ---
+    
+    const farmInputForm = document.getElementById('farm-input-form');
+    const cropRecommendationResult = document.getElementById('crop-recommendation-result');
+    const recommendedCropEl = document.getElementById('recommended-crop');
+    const recommendationDetailsEl = document.getElementById('recommendation-details');
+
+    window.clearCropRecommendation = function() {
+      cropRecommendationResult.classList.add('hidden');
+      recommendedCropEl.textContent = '';
+      recommendationDetailsEl.textContent = '';
+      farmInputForm.reset();
+    }
+
+    farmInputForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const soilType = document.getElementById('soil-type').value;
+      const previousFertilizers = Array.from(document.querySelectorAll('input[name="previous-fertilizer"]:checked')).map(cb => cb.value);
+
+      let recommendedCrop = '';
+      let details = '';
+
+      // --- Recommendation Logic (Simplified, kept from original file) ---
+      if (soilType === 'sandy') {
+        recommendedCrop = 'Millets';
+        details = 'Sandy soil is suitable for crops that require less water, like millets.';
+      } else if (soilType === 'clayey') {
+        recommendedCrop = 'Rice';
+        details = 'Clayey soil retains water well, making it suitable for rice cultivation.';
+      } else if (soilType === 'loamy') {
+        recommendedCrop = 'Corn';
+        details = 'Loamy soil is balanced and excellent for corn and most vegetables.';
+      } else if (soilType === 'silty') {
+        recommendedCrop = 'Wheat';
+        details = 'Silty soil is fertile and good for wheat cultivation.';
+      } else if (soilType === 'peaty') {
+        recommendedCrop = 'Sugarcane';
+        details = 'Peaty soil is rich in organic matter and ideal for sugarcane farming.';
+      } else if (soilType === 'chalky') {
+        recommendedCrop = 'Potato';
+        details = 'Chalky soil is alkaline; potatoes can tolerate this soil type better than many crops.';
+      } else {
+        recommendedCrop = 'Wheat';
+        details = 'Based on your inputs, wheat is a safe recommended crop.';
+      }
+
+      // Add fertilizer advice
+      if (previousFertilizers.includes('urea')) {
+        details += ' Since you used Urea previously, ensure balanced nitrogen application.';
+      }
+      if (previousFertilizers.includes('organic')) {
+        details += ' Organic fertilizers improve soil health for better yields.';
+      }
+
+      recommendedCropEl.textContent = recommendedCrop;
+      recommendationDetailsEl.textContent = details;
+      cropRecommendationResult.classList.remove('hidden');
+    });
+
+  </script>
+ 
+     </section>
+     <!-- Various Crops -->
+     <section class="page-content max-w-5xl mx-auto hidden" id="various-crops">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       Various Crops
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Golden wheat crop field under blue sky with sunlight" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/67f59c5e-ad70-42c2-b97a-0969cefa885a.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Wheat
+        </h3>
+        <p class="text-gray-700 text-center">
+         Wheat is a staple crop grown worldwide, requiring moderate rainfall and well-drained soil.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Lush green rice crop field with water irrigation and cloudy sky" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/53087825-9c8c-42c4-8e1f-bde325c013fd.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Rice
+        </h3>
+        <p class="text-gray-700 text-center">
+         Rice thrives in flooded fields and requires warm temperatures and abundant water.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Tall green maize crop plants growing in a sunny farm field" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/2e016ad8-d3fa-4c1f-d471-7f660be8867f.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Maize
+        </h3>
+        <p class="text-gray-700 text-center">
+         Maize requires warm weather and well-drained fertile soil for optimal growth.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Rows of tomato plants with ripe red tomatoes in a greenhouse" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/204fea16-c206-460c-c7e7-ad8a822e22c9.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Tomato
+        </h3>
+        <p class="text-gray-700 text-center">
+         Tomatoes grow best in warm climates with plenty of sunlight and well-drained soil.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Green potato plants growing in a farm field with soil mounds" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/d4e48599-833c-4bec-f1f4-2fad8c633f0e.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Potato
+        </h3>
+        <p class="text-gray-700 text-center">
+         Potatoes prefer cool climates and loose, well-drained soil rich in organic matter.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
+        <img alt="Tall green sugarcane plants growing densely in a tropical farm field" class="rounded-md mb-3 object-cover w-full h-36" height="150" src="https://storage.googleapis.com/a1aa/image/26cc59fd-9bee-4107-f124-1b779f3936f1.jpg" width="200"/>
+        <h3 class="text-lg font-semibold text-green-800 mb-1">
+         Sugarcane
+        </h3>
+        <p class="text-gray-700 text-center">
+         Sugarcane requires tropical climates with high rainfall and fertile soil.
+        </p>
+       </div>
+      </div>
+     </section>
+     <!-- Fertilizers -->
+     <section class="page-content max-w-5xl mx-auto hidden" id="fertilizers">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       Fertilizers
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="Bag of NPK fertilizer with colorful label showing nitrogen, phosphorus, potassium" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/475098c8-db7b-4a00-598e-57431ce9a1e4.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          NPK Fertilizer
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         NPK fertilizers contain nitrogen, phosphorus, and potassium, essential nutrients for plant growth.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="White granules of urea fertilizer in a small heap" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/fdc7e979-8d10-4836-5b17-86791ed690cf.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          Urea
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         Urea is a nitrogen-rich fertilizer that promotes leafy growth and improves crop yield.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="Bag of DAP fertilizer with label showing diammonium phosphate" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/59ce466a-fc85-466d-c4e5-ce3bbe9f40a2.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          DAP
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         Diammonium phosphate (DAP) provides phosphorus and nitrogen to support root development and growth.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="Crystals of potash fertilizer in a small pile" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/094334ac-92eb-479d-ba73-c304e2f62d0e.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          Potash
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         Potash fertilizers supply potassium, which helps plants resist diseases and improve water retention.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="Organic compost fertilizer in a heap with dark rich soil texture" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/74df19e2-9dd2-46b0-4a03-7eda8a11fcb4.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          Organic Fertilizers
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         Organic fertilizers improve soil structure and provide slow-release nutrients for sustainable farming.
+        </p>
+       </div>
+       <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex items-center space-x-4 mb-3">
+         <img alt="White powdery gypsum fertilizer in a small pile" class="w-16 h-16 rounded-md object-cover" height="60" src="https://storage.googleapis.com/a1aa/image/117f3dc0-0555-42b4-375f-6561be402a0a.jpg" width="60"/>
+         <h3 class="text-lg font-semibold text-green-800">
+          Gypsum
+         </h3>
+        </div>
+        <p class="text-gray-700">
+         Gypsum improves soil texture and provides calcium and sulfur essential for plant growth.
+        </p>
+       </div>
+      </div>
+     </section>
+     <!-- Diseases -->
+     <section class="page-content max-w-5xl mx-auto hidden" id="diseases">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       Crop Diseases
+      </h2>
+      <div class="space-y-6">
+       <article class="bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row md:space-x-6">
+        <img alt="Close-up of wheat leaves showing rust disease with orange pustules" class="rounded-md mb-4 md:mb-0 md:w-48 object-cover" height="150" src="https://storage.googleapis.com/a1aa/image/31c71702-2204-495c-1b4b-180d40f14e0a.jpg" width="200"/>
+        <div>
+         <h3 class="text-xl font-semibold text-green-800 mb-2">
+          Wheat Rust
+         </h3>
+         <p class="text-gray-700 mb-2">
+          Wheat rust is a fungal disease causing orange pustules on leaves, reducing photosynthesis and yield.
+         </p>
+         <p class="text-gray-600 italic">
+          Prevention: Use resistant varieties and apply fungicides early.
+         </p>
+        </div>
+       </article>
+       <article class="bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row md:space-x-6">
+        <img alt="Rice leaves showing blast disease with grayish lesions and dead tissue" class="rounded-md mb-4 md:mb-0 md:w-48 object-cover" height="150" src="https://storage.googleapis.com/a1aa/image/8e7b0c64-d733-43c9-2a2b-f832427657f1.jpg" width="200"/>
+        <div>
+         <h3 class="text-xl font-semibold text-green-800 mb-2">
+          Rice Blast
+         </h3>
+         <p class="text-gray-700 mb-2">
+          Rice blast is a fungal disease causing lesions on leaves and stems, leading to plant death.
+         </p>
+         <p class="text-gray-600 italic">
+          Prevention: Maintain proper water levels and use resistant varieties.
+         </p>
+        </div>
+       </article>
+       <article class="bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row md:space-x-6">
+        <img alt="Tomato leaves with dark brown blight spots and wilting symptoms" class="rounded-md mb-4 md:mb-0 md:w-48 object-cover" height="150" src="https://storage.googleapis.com/a1aa/image/51907778-70aa-43bc-f612-a5eef28b3029.jpg" width="200"/>
+        <div>
+         <h3 class="text-xl font-semibold text-green-800 mb-2">
+          Tomato Blight
+         </h3>
+         <p class="text-gray-700 mb-2">
+          Tomato blight causes dark spots on leaves and stems, leading to wilting and fruit rot.
+         </p>
+         <p class="text-gray-600 italic">
+          Prevention: Remove infected plants and apply copper-based fungicides.
+         </p>
+        </div>
+       </article>
+       <article class="bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row md:space-x-6">
+        <img alt="Potato leaves with water-soaked lesions and white fungal growth of late blight" class="rounded-md mb-4 md:mb-0 md:w-48 object-cover" height="150" src="https://storage.googleapis.com/a1aa/image/e21a085b-4e32-4f4a-ecff-5961c4354cbd.jpg" width="200"/>
+        <div>
+         <h3 class="text-xl font-semibold text-green-800 mb-2">
+          Potato Late Blight
+         </h3>
+         <p class="text-gray-700 mb-2">
+          Late blight causes water-soaked lesions on leaves and tubers, leading to crop loss.
+         </p>
+         <p class="text-gray-600 italic">
+          Prevention: Use certified seed and apply fungicides regularly.
+         </p>
+        </div>
+       </article>
+       <article class="bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row md:space-x-6">
+        <img alt="Maize leaves showing white downy mildew fungal growth on underside" class="rounded-md mb-4 md:mb-0 md:w-48 object-cover" height="150" src="https://storage.googleapis.com/a1aa/image/4feed8b4-804f-4f48-d9a9-feb42eb230ae.jpg" width="200"/>
+        <div>
+         <h3 class="text-xl font-semibold text-green-800 mb-2">
+          Maize Downy Mildew
+         </h3>
+         <p class="text-gray-700 mb-2">
+          Downy mildew causes white fungal growth on maize leaves, reducing photosynthesis.
+         </p>
+         <p class="text-gray-600 italic">
+          Prevention: Use resistant hybrids and maintain field hygiene.
+         </p>
+        </div>
+       </article>
+      </div>
+     </section>
+     <!-- Farm Input -->
+     <section class="page-content max-w-3xl mx-auto hidden" id="farm-input">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       Farm Input &amp; Crop Recommendation
+      </h2>
+      <form class="space-y-6 bg-white p-6 rounded-lg shadow-md" id="farm-input-form">
+       <div>
+        <label class="block text-gray-700 font-semibold mb-1" for="soil-type">
+         Soil Type
+        </label>
+        <select class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="soil-type" required="">
+         <option disabled="" selected="" value="">
+          Select soil type
+         </option>
+         <option value="loamy">
+          Loamy
+         </option>
+         <option value="sandy">
+          Sandy
+         </option>
+         <option value="clay">
+          Clay
+         </option>
+         <option value="silty">
+          Silty
+         </option>
+         <option value="peaty">
+          Peaty
+         </option>
+         <option value="chalky">
+          Chalky
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700 font-semibold mb-1" for="previous-crop">
+         Previous Crop
+        </label>
+        <select class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="previous-crop" required="">
+         <option disabled="" selected="" value="">
+          Select previous crop
+         </option>
+         <option value="wheat">
+          Wheat
+         </option>
+         <option value="rice">
+          Rice
+         </option>
+         <option value="maize">
+          Maize
+         </option>
+         <option value="tomato">
+          Tomato
+         </option>
+         <option value="potato">
+          Potato
+         </option>
+         <option value="sugarcane">
+          Sugarcane
+         </option>
+         <option value="none">
+          None
+         </option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700 font-semibold mb-1" for="total-area">
+         Total Area (in acres)
+        </label>
+        <input class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="total-area" min="0.1" placeholder="e.g. 5.5" required="" step="0.1" type="number"/>
+       </div>
+       <div>
+        <label class="block text-gray-700 font-semibold mb-1" for="previous-fertilizers">
+         Previous Fertilizers Used
+        </label>
+        <select class="w-full border border-gray-300 rounded-md p-2 h-28 focus:outline-none focus:ring-2 focus:ring-green-500" id="previous-fertilizers" multiple="">
+         <option value="npk">
+          NPK
+         </option>
+         <option value="urea">
+          Urea
+         </option>
+         <option value="dap">
+          DAP
+         </option>
+         <option value="potash">
+          Potash
+         </option>
+         <option value="organic">
+          Organic
+         </option>
+         <option value="gypsum">
+          Gypsum
+         </option>
+        </select>
+        <p class="text-sm text-gray-500 mt-1">
+         Hold Ctrl (Cmd on Mac) to select multiple
+        </p>
+       </div>
+       <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-md transition" type="submit">
+        Get Best Crop Recommendation
+       </button>
+      </form>
+      <div class="mt-6 bg-green-50 border border-green-300 rounded-md p-4 hidden max-w-3xl mx-auto" id="crop-recommendation-result">
+       <h3 class="text-xl font-semibold text-green-800 mb-2">
+        Recommended Crop
+       </h3>
+       <p class="text-green-900 font-bold text-lg" id="recommended-crop">
+       </p>
+       <p class="text-gray-700 mt-2" id="recommendation-details">
+       </p>
+      </div>
+     </section>
+     <!-- Follow Us -->
+     <section class="page-content max-w-3xl mx-auto hidden" id="follow-us">
+      <h2 class="text-3xl font-bold text-green-700 mb-4">
+       Follow Us
+      </h2>
+      <p class="text-gray-700 mb-6">
+       Stay connected with KrushiTech on social media for the latest updates, tips, and community support.
+      </p>
+      <div class="flex space-x-8 justify-center">
+       <a aria-label="Instagram" class="text-pink-600 hover:text-pink-800 text-5xl" href="https://www.instagram.com/RAJ123" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900 text-5xl" href="https://www.linkedin.com/company/krushitech" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-linkedin">
+        </i>
+       </a>
+       <a aria-label="Facebook" class="text-blue-600 hover:text-blue-800 text-5xl" href="https://www.facebook.com/krushitech" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-facebook-square">
+        </i>
+       </a>
+      </div>
+     </section>
+    </main>
+    <footer class="bg-green-700 text-white text-center py-3">
+     © 2024 KrushiTech. All rights reserved.
+    </footer>
+   </div>
+  </div>
+  <script>
+   // Simple SPA navigation and auth simulation
+    const authPages = document.getElementById('auth-pages');
+    const mainApp = document.getElementById('main-app');
+
+    const signInForm = document.getElementById('sign-in-form');
+    const signUpForm = document.getElementById('sign-up-form');
+    const toSignUpBtn = document.getElementById('to-sign-up');
+    const toSignInBtn = document.getElementById('to-sign-in');
+    const googleSignInBtn = document.getElementById('google-sign-in');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page-content');
+
+    // Show sign up form
+    toSignUpBtn.addEventListener('click', () => {
+      signInForm.classList.add('hidden');
+      signUpForm.classList.remove('hidden');
+    });
+
+    // Show sign in form
+    toSignInBtn.addEventListener('click', () => {
+      signUpForm.classList.add('hidden');
+      signInForm.classList.remove('hidden');
+    });
+
+    // Fake sign in/sign up handlers
+    function fakeAuthSuccess() {
+      authPages.classList.add('hidden');
+      mainApp.classList.remove('hidden');
+      showPage('about-us');
+    }
+
+    signInForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you would add real authentication logic
+      fakeAuthSuccess();
+    });
+
+    signUpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you would add real sign up logic
+      fakeAuthSuccess();
+    });
+
+    googleSignInBtn.addEventListener('click', () => {
+      // Here you would integrate Google OAuth
+      fakeAuthSuccess();
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      mainApp.classList.add('hidden');
+      authPages.classList.remove('hidden');
+      signUpForm.classList.add('hidden');
+      signInForm.classList.remove('hidden');
+      signInForm.reset();
+      signUpForm.reset();
+      clearScanResult();
+      clearCropRecommendation();
+    });
+
+    // Navigation
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const page = link.getAttribute('data-page');
+        showPage(page);
+      });
+    });
+
+    function showPage(pageId) {
+      pages.forEach((page) => {
+        if (page.id === pageId) {
+          page.classList.remove('hidden');
+        } else {
+          page.classList.add('hidden');
+        }
+      });
+      // Highlight active nav link
+      navLinks.forEach((link) => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('bg-green-900');
+        } else {
+          link.classList.remove('bg-green-900');
+        }
+      });
+    }
+
+    // Leaf scanning simulation
+    const leafScanForm = document.getElementById('leaf-scan-form');
+    const scanResult = document.getElementById('scan-result');
+    const plantNameEl = document.getElementById('plant-name');
+    const plantLifespanEl = document.getElementById('plant-lifespan');
+    const plantNutrientsEl = document.getElementById('plant-nutrients');
+    const plantDiseasesEl = document.getElementById('plant-diseases');
+    const plantImageEl = document.getElementById('plant-image');
+    const leafImageInput = document.getElementById('leaf-image-input');
+
+    // Dummy data for leaf scanning results keyed by filename (simulate)
+    const leafScanData = {
+      'wheat.jpg': {
+        name: 'Wheat',
+        lifespan: '120 days',
+        nutrients: 'Nitrogen, Phosphorus, Potassium',
+        diseases: 'Wheat Rust, Powdery Mildew',
+        image: 'https://placehold.co/300x200/png?text=Wheat+Plant+Image',
+      },
+      'rice.jpg': {
+        name: 'Rice',
+        lifespan: '150 days',
+        nutrients: 'Nitrogen, Potassium, Zinc',
+        diseases: 'Rice Blast, Sheath Blight',
+        image: 'https://placehold.co/300x200/png?text=Rice+Plant+Image',
+      },
+      'maize.jpg': {
+        name: 'Maize',
+        lifespan: '100 days',
+        nutrients: 'Nitrogen, Phosphorus, Potassium',
+        diseases: 'Downy Mildew, Maize Streak Virus',
+        image: 'https://placehold.co/300x200/png?text=Maize+Plant+Image',
+      },
+      'tomato.jpg': {
+        name: 'Tomato',
+        lifespan: '90 days',
+        nutrients: 'Nitrogen, Phosphorus, Calcium',
+        diseases: 'Tomato Blight, Fusarium Wilt',
+        image: 'https://placehold.co/300x200/png?text=Tomato+Plant+Image',
+      },
+      'potato.jpg': {
+        name: 'Potato',
+        lifespan: '110 days',
+        nutrients: 'Nitrogen, Potassium, Magnesium',
+        diseases: 'Late Blight, Potato Scab',
+        image: 'https://placehold.co/300x200/png?text=Potato+Plant+Image',
+      },
+      'sugarcane.jpg': {
+        name: 'Sugarcane',
+        lifespan: '365 days',
+        nutrients: 'Nitrogen, Potassium, Phosphorus',
+        diseases: 'Red Rot, Smut',
+        image: 'https://placehold.co/300x200/png?text=Sugarcane+Plant+Image',
+      },
+    };
+
+    leafScanForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const file = leafImageInput.files[0];
+      if (!file) return;
+
+      // Simulate scanning by filename match (lowercase)
+      const filename = file.name.toLowerCase();
+
+      // Find matching data or fallback
+      let result = null;
+      for (const key in leafScanData) {
+        if (filename.includes(key.split('.')[0])) {
+          result = leafScanData[key];
+          break;
+        }
+      }
+
+      if (result) {
+        plantNameEl.textContent = `Plant Name: ${result.name}`;
+        plantLifespanEl.textContent = `Lifespan: ${result.lifespan}`;
+        plantNutrientsEl.textContent = `Required Nutrients: ${result.nutrients}`;
+        plantDiseasesEl.textContent = `Common Diseases: ${result.diseases}`;
+        plantImageEl.src = result.image;
+        plantImageEl.alt = `Image of ${result.name} plant showing healthy leaves and stem`;
+        scanResult.classList.remove('hidden');
+      } else {
+        plantNameEl.textContent = 'Plant Name: Unknown';
+        plantLifespanEl.textContent = '';
+        plantNutrientsEl.textContent = '';
+        plantDiseasesEl.textContent = '';
+        plantImageEl.src = '';
+        plantImageEl.alt = '';
+        scanResult.classList.remove('hidden');
+      }
+    });
+
+    function clearScanResult() {
+      scanResult.classList.add('hidden');
+      plantNameEl.textContent = '';
+      plantLifespanEl.textContent = '';
+      plantNutrientsEl.textContent = '';
+      plantDiseasesEl.textContent = '';
+      plantImageEl.src = '';
+      plantImageEl.alt = '';
+      leafImageInput.value = '';
+    }
+
+    // Farm input & crop recommendation logic (simple heuristic)
+    const farmInputForm = document.getElementById('farm-input-form');
+    const cropRecommendationResult = document.getElementById('crop-recommendation-result');
+    const recommendedCropEl = document.getElementById('recommended-crop');
+    const recommendationDetailsEl = document.getElementById('recommendation-details');
+
+    farmInputForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const soilType = document.getElementById('soil-type').value;
+      const previousCrop = document.getElementById('previous-crop').value;
+      const totalArea = parseFloat(document.getElementById('total-area').value);
+      const previousFertilizersSelect = document.getElementById('previous-fertilizers');
+      const previousFertilizers = Array.from(previousFertilizersSelect.selectedOptions).map(
+        (opt) => opt.value
+      );
+
+      // Simple crop recommendation logic based on soil type and previous crop
+      let recommendedCrop = '';
+      let details = '';
+
+      if (soilType === 'loamy') {
+        if (previousCrop === 'wheat' || previousCrop === 'none') {
+          recommendedCrop = 'Tomato';
+          details =
+            'Loamy soil is ideal for tomatoes. Since your previous crop was wheat or none, tomatoes will grow well.';
+        } else if (previousCrop === 'rice') {
+          recommendedCrop = 'Maize';
+          details =
+            'After rice, maize grows well in loamy soil and helps maintain soil fertility.';
+        } else {
+          recommendedCrop = 'Potato';
+          details = 'Potatoes also thrive in loamy soil and can be a good choice.';
+        }
+      } else if (soilType === 'sandy') {
+        recommendedCrop = 'Maize';
+        details =
+          'Sandy soil drains quickly and is suitable for maize cultivation with proper irrigation.';
+      } else if (soilType === 'clay') {
+        recommendedCrop = 'Rice';
+        details =
+          'Clay soil retains water well, making it suitable for rice cultivation.';
+      } else if (soilType === 'silty') {
+        recommendedCrop = 'Wheat';
+        details =
+          'Silty soil is fertile and good for wheat cultivation.';
+      } else if (soilType === 'peaty') {
+        recommendedCrop = 'Sugarcane';
+        details =
+          'Peaty soil is rich in organic matter and ideal for sugarcane farming.';
+      } else if (soilType === 'chalky') {
+        recommendedCrop = 'Potato';
+        details =
+          'Chalky soil is alkaline; potatoes can tolerate this soil type better than many crops.';
+      } else {
+        recommendedCrop = 'Wheat';
+        details = 'Based on your inputs, wheat is a safe recommended crop.';
+      }
+
+      // Add fertilizer advice
+      if (previousFertilizers.includes('urea')) {
+        details += ' Since you used Urea previously, ensure balanced nitrogen application.';
+      }
+      if (previousFertilizers.includes('organic')) {
+        details += ' Organic fertilizers improve soil health for better yields.';
+      }
+
+      recommendedCropEl.textContent = recommendedCrop;
+      recommendationDetailsEl.textContent = details;
+      cropRecommendationResult.classList.remove('hidden');
+    });
+
+    function clearCropRecommendation() {
+      cropRecommendationResult.classList.add('hidden');
+      recommendedCropEl.textContent = '';
+      recommendationDetailsEl.textContent = '';
+      farmInputForm.reset();
+    }
+  </script>
+ </body>
+</html>
